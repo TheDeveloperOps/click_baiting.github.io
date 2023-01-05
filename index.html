@@ -33,13 +33,13 @@
               document.querySelector('h2').innerHTML=counter;
               localStorage.setItem('counter',counter)
               if(counter==100)
-                document.querySelector('h2').innerHTML='<span style="font-size:50px;margin:0px">FUCK!!!, YOU DID IT MAN</span>';
+                document.querySelector('h2').innerHTML='<span style="font-size:70px;margin:0px">FUCK!!!, YOU DID IT MAN</span>';
               }
               document.addEventListener('DOMContentLoaded',function(){
-                document.querySelector('h1').innerHTML=localStorage.getItem('counter')
+                document.querySelector('h2').innerHTML=localStorage.getItem('counter')
                 document.querySelector('button').onclick=count
               })
-            }
+            
             function reset(){
                 localStorage.setItem('counter',0)
                 document.querySelector('h2').innerHTML=0
