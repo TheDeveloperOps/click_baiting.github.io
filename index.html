@@ -1,8 +1,9 @@
 
 <!DOCTYPE html>
-<html style="margin:20px;">
+<html ">
     <head>
         <title>HELLO</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <h1 style="vertical-align:top;text-align: center;margin: 0px;color:rgb(188, 255, 88);font-size: 90px;">CLICK BAITING</h1>
         <p style="vertical-align:top;margin: 0px;text-align: center;color:white;font-size: 70px;"">Show to your click speed</p>
         <style>
@@ -23,12 +24,25 @@
         </style>
         <script>
             let counter=0
+            if(!localStorage.getItem('counter')){
+                localStorage.setItem('counter',0)
+            }
             function count(){
+            let counter=localStorage.getItem('counter')
               counter++;
               document.querySelector('h2').innerHTML=counter;
+              localStorage.setItem('counter',counter)
               if(counter==100){
-                document.querySelector('h2').innerHTML='<span style="font-size:90px;margin:0px">FUCK YOU DID IT MAN</span>';
+                document.querySelector('h2').innerHTML='<span style="font-size:50px;margin:0px">FUCK!!!, YOU DID IT MAN</span>';
               }
+              document.addEventListener('DOMContentLoaded',function(){
+                document.querySelector('h1').innerHTML=localStorage.getItem('counter')
+                document.querySelector('button').onclick=count
+              })
+            }
+            function reset(){
+                localStorage.setItem('counter',0)
+                document.querySelector('h2').innerHTML=0
             }
 
         </script>
@@ -38,6 +52,9 @@
         <div style="text-align: center;font-size: 40px;"> 
             <button class="buttonz" onclick="count()">
                 <span>TAP TAP </span>
+            </button>
+            <button class="buttonz" id="resetbtn" onclick="reset()">
+                <span>RESET</span>
             </button>
         </div>
     </body>    
